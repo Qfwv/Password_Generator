@@ -1,3 +1,5 @@
+
+
 public class Generator {
       
     static final String letLow = "qwertyuiopasdfghjklzxcvbnm";
@@ -51,7 +53,7 @@ public class Generator {
         String temp = sb.toString();
         
         temp = temp.substring(upAmount + numAmount + specialAmount);
-        //  System.out.println(temp);
+    
 
         char[] newPass = temp.toCharArray();
 
@@ -74,14 +76,9 @@ public class Generator {
         System.out.println("WARNING: Total amount of custom additions (e.g., amount of numbers) exceeds total pasword length!");
     }   
        
-        System.out.println("-------------------------------------------------------------------------------------------------");
-       
-        System.out.println("\n");
-        System.out.println("++++ PASSWORD ++++");
-        System.out.println("------------------");
-        return finalPass + "\n" + "------------------";
-    }
-
+   
+        return finalPass;
+    }  
 
 
 
