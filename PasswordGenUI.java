@@ -1,4 +1,7 @@
 import javax.swing.*;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+
 
 import java.util.Scanner;
 
@@ -35,38 +38,39 @@ public class PasswordGenUI extends JFrame {
 
 
     JLabel labelPassLen = new JLabel("Password Length:");
-    labelPassLen.setBounds(0, 10, 150, 30);
+    labelPassLen.setBounds(5, 10, 150, 30);
     JTextField inputPassLen = new JTextField();
-    inputPassLen.setBounds(125, 10, 150, 30);
+    inputPassLen.setBounds(130, 10, 145, 30);
     
 
     JLabel labelUpNum = new JLabel("Number of upercase:");
-    labelUpNum.setBounds(0, 50, 150, 30);
+    labelUpNum.setBounds(5, 50, 150, 30);
     JTextField inputUpNum = new JTextField();
-    inputUpNum.setBounds(125, 50, 150, 30);
+    inputUpNum.setBounds(130, 50, 145, 30);
     
 
     JLabel labelNumNum = new JLabel("Number of numbers:");
-    labelNumNum.setBounds(0, 90, 150, 30);
+    labelNumNum.setBounds(5, 90, 150, 30);
     JTextField inputNumNum = new JTextField();
-    inputNumNum.setBounds(125, 90, 150, 30);
+    inputNumNum.setBounds(130, 90, 145, 30);
 
     
-    JLabel labelSpcNum = new JLabel("Number of numbers:");
-    labelSpcNum.setBounds(0, 130, 150, 30);
+    JLabel labelSpcNum = new JLabel("Number of special:");
+    labelSpcNum.setBounds(5, 130, 150, 30);
     JTextField inputSpcNum = new JTextField();
-    inputSpcNum.setBounds(125, 130, 150, 30);
+    inputSpcNum.setBounds(130, 130, 145, 30);
 
 
     
-    JLabel labelOutput = new JLabel("Output");
-    labelOutput.setBounds(160, 170, 150, 30);
+    JLabel labelOutput = new JLabel("Output:");
+    labelOutput.setBounds(35, 205, 150, 30);
         
-    JLabel labelOutputLine = new JLabel("----------------------------");
-    labelOutputLine.setBounds(122, 180, 150, 30);
+    String outputlines = "____________________________________________________________";
+    JLabel labelOutputLine = new JLabel(outputlines);
+    labelOutputLine.setBounds(0, 155, 400, 30);
 
     JLabel labelOutputAnwser = new JLabel("");
-    labelOutputAnwser.setBounds(100, 200, 150, 30);
+    labelOutputAnwser.setBounds(100, 205, 150, 30);
 
     
     
@@ -91,7 +95,19 @@ public class PasswordGenUI extends JFrame {
     
         });
     
-   
+        JButton copyToClip = new JButton("Copy");
+        copyToClip.setBounds(280, 195, 100, 50);
+        copyToClip.addActionListener(e -> {
+
+            String password = labelOutputAnwser.getText();
+            StringSelection selection = new StringSelection(password);
+            Toolkit.getDefaultToolkit()
+            .getSystemClipboard()
+            .setContents(selection, null);
+
+
+        });
+
     
     panel.add(labelPassLen); 
     panel.add(inputPassLen);
@@ -113,6 +129,10 @@ public class PasswordGenUI extends JFrame {
     
     
     panel.add(labelOutputAnwser);
+    
+    panel.add(copyToClip);
+    
+    
     add(panel);
     setVisible(true);
 

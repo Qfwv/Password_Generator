@@ -69,13 +69,6 @@ public class Generator {
         }
 
        finalPass = new String(newPass); 
-        
-    
-       if (upAmount + numAmount + specialAmount > length) {
-        System.out.println("-------------------------------------------------------------------------------------------------");
-        System.out.println("WARNING: Total amount of custom additions (e.g., amount of numbers) exceeds total pasword length!");
-    }   
-       
    
         return finalPass;
     }  
